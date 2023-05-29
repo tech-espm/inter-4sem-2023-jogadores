@@ -1,0 +1,14 @@
+EJS
+https://ejs.co/
+
+EJS Layouts
+https://www.npmjs.com/package/express-ejs-layouts
+
+Extensão do VS Code para EJS
+EJS language support
+
+Navbar
+https://getbootstrap.com/docs/4.6/components/navbar/
+
+Chart.js Samples
+https://www.chartjs.org/docs/latest/samples/information.html
