@@ -11,7 +11,7 @@
 ## Integrantes
 - [Gabriel Pereira dos Guimarães Peixoto](https://github.com/GabrielP2324/)
 - [João Vitor Malvestiti Miranda](https://github.com/JvmMiranda/)
-- [Nome do integrante 3 e link do portifólio](https://github.com/tech-espm/)
+- [Gabriel Ramos Zaude](https://github.com/zauzaud)
 
 ## Descrição do Projeto
 
