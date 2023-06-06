@@ -1,25 +1,35 @@
 body {
-    background: #777;
+  background: #777;
 }
 
 .principal {
-    background: #f0f0f0;
-    min-height: 100vh;
-    box-shadow: 0 0 1rem;
-    display: flex;
-    flex-direction: column;
+  background: #f0f0f0;
+  min-height: 100vh;
+  box-shadow: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .corpo-principal {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 .rodape {
-    padding: 1rem;
-    background: #ccc;
+  padding: 1rem;
+  background: #ccc;
 }
 
 .limitador {
-    max-width: 1260px;
-    margin: 0 auto;
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+.h2-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+header.site-header {
+  background-color: #161920 !important;
 }
