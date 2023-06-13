@@ -1,21 +1,22 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
-<head>
-	<%- include("comum/cabecalho") %>
+  <head>
+    <%- include("comum/cabecalho") %>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <%- defineContent("espaco-head") %>
+  </head>
+  <body>
+    <div class="principal limitador">
+      <%- include("comum/nav") %>
 
-	<%- defineContent("espaco-head") %>
-</head>
-<body>
+      <div class="corpo-principal"><%- body %></div>
 
-	<div class="principal limitador">
-		<%- include("comum/nav") %>
-
-		<div class="corpo-principal">
-			<%- body %>
-		</div>
-
-		<%- include("comum/rodape") %>
-	</div>
-
-</body>
+      <%- include("comum/rodape") %>
+    </div>
+  </body>
 </html>
