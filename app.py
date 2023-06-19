@@ -7,49 +7,50 @@ from selenium.webdriver.support import expected_conditions as EC
 from dados import url_origem, string_conexao
 from banco import criarOcorrencia, criarJogo, criarOcorrenciaJogo
 
-driver = webdriver.Chrome()
-driver.get(url_origem)
+if __name__ == '__main__':
+	driver = webdriver.Chrome()
+	driver.get(url_origem)
 
-corpo_tabela = WebDriverWait(driver, 20).until(
-	EC.presence_of_element_located((By.CSS_SELECTOR, '#table-apps > tbody'))
-)
+	corpo_tabela = WebDriverWait(driver, 20).until(
+		EC.presence_of_element_located((By.CSS_SELECTOR, '#table-apps > tbody'))
+	)
 
-linhas = corpo_tabela.find_elements(By.TAG_NAME, 'tr')
+	linhas = corpo_tabela.find_elements(By.TAG_NAME, 'tr')
 
-jogos = []
+	jogos = []
 
-posicao = 0
+	posicao = 0
 
-for linha in linhas:
-	appid = int(linha.get_attribute("data-appid"))
+	for linha in linhas:
+		appid = int(linha.get_attribute("data-appid"))
 
-	posicao = posicao + 1
+		posicao = posicao + 1
 
-	colunas = linha.find_elements(By.TAG_NAME, 'td')
+		colunas = linha.find_elements(By.TAG_NAME, 'td')
 
-	imagem = colunas[1].find_elements(By.TAG_NAME, 'img')
-	imagem = imagem[0].get_attribute('src')
-	nome = colunas[2].text
-	jogadores = int(colunas[4].get_attribute("data-sort"))
+		imagem = colunas[1].find_elements(By.TAG_NAME, 'img')
+		imagem = imagem[0].get_attribute('src')
+		nome = colunas[2].text
+		jogadores = int(colunas[4].get_attribute("data-sort"))
 
-	jogos.append({
-		'id': appid,
-		'posicao': posicao,
-		'nome': nome,
-		'imagem': imagem,
-		'jogadores': jogadores
-	})
+		jogos.append({
+			'id': appid,
+			'posicao': posicao,
+			'nome': nome,
+			'imagem': imagem,
+			'jogadores': jogadores
+		})
 
-driver.close()
+	driver.close()
 
-engine = create_engine(string_conexao)
+	engine = create_engine(string_conexao)
 
-idocorrencia = criarOcorrencia(engine)
+	idocorrencia = criarOcorrencia(engine)
 
-jogos.sort(key=lambda jogo: jogo['jogadores'], reverse=True)
+	jogos.sort(key=lambda jogo: jogo['jogadores'], reverse=True)
 
-for jogo in jogos:
-	criarJogo(engine, jogo)
-	criarOcorrenciaJogo(engine, idocorrencia, jogo)
+	for jogo in jogos:
+		criarJogo(engine, jogo)
+		criarOcorrenciaJogo(engine, idocorrencia, jogo)
 
-engine.dispose(True)
+	engine.dispose(True)

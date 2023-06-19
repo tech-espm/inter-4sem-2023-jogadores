@@ -78,7 +78,12 @@
 
 		let jogo = jogosPorId[document.getElementById("idjogo").value];
 		h2Jogo.textContent = jogo.nome;
-		imgJogo.src = jogo.imagem;
+		if (jogo.imagem != 'https://steamdb.info/static/img/applogo.svg'){
+			imgJogo.src = jogo.imagem;
+		}else{
+			imgJogo.src = "https://http.cat/images/404.jpg";
+			imgJogo.style.maxWidth = "50%";
+		}
 
 		let labels = [], data = [], maximo = 0;
 
