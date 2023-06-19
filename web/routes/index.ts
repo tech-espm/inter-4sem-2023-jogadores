@@ -24,6 +24,11 @@ class IndexRoute {
 	public async sobre(req: app.Request, res: app.Response) {
 		res.render('index/sobre');
 	}
+	
+	public async notFound(req: app.Request, res: app.Response) {
+		res.status(404).render('404');
+	}
+	
 }
 
 export = IndexRoute;
